@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3E598CFC-83B2-494A-A97F-32EB24D797C6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SitefinityWebApp</RootNamespace>
+    <AssemblyName>SitefinityWebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplicationList>
+    </SilverlightApplicationList>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;STANDARD;PRO;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\SitefinityWebApp.XML</DocumentationFile>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Pro|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE;STANDARD;PRO;</DefineConstants>
+    <DocumentationFile>bin\SitefinityWebApp.XML</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="payflow_dotNET">
+      <HintPath>..\..\..\..\..\Common\Dependencies\payflow_dotNET.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Extensions.Design" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Services.Client" />
+    <Reference Include="System.ServiceModel.Activities" />
+    <Reference Include="System.ServiceModel.Channels" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="AjaxControlToolkit, Version=3.0.20820.16598, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\AjaxControlToolkit.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DirectShowLib-2005, Version=2.1.0.0, Culture=neutral, PublicKeyToken=67e7b740cdfc2d3f">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\DirectShowLib-2005.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.0.5022.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\DocumentFormat.OpenXml.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Interop.DexterLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=59345589f61c4f31">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Interop.DexterLib.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.ServiceRuntime, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.WindowsAzure.ServiceRuntime.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Windows, Version=5.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Web, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Web.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Windows, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Windows.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.35.Extensions, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.35.Extensions.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.40.Extensions, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.40.Extensions.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Config, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Config.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.MySql.Data, Version=2010.2.1013.8, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Ria.Extensions, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Ria.Extensions.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Runtime, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Runtime.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.SDK, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.SDK.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.SDK.AddIn, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.SDK.AddIn.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.SDK.Design, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.SDK.Design.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.SDK.VSPackage, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.SDK.VSPackage.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Upgrade, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=7ce17eeaf1d59342">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Upgrade.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=7.1.13.612, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Reporting.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.WebForms, Version=7.1.13.612, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Analytics.Server.Core, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Analytics.Server.Core.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Analytics.Server.DependencyResolution, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Analytics.Server.DependencyResolution.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Analytics.Server.GoogleAnalyticsPlugin.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Analytics.Server.Infrastructure, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Analytics.Server.Infrastructure.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.ContentModules, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.ContentModules.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Ecommerce, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Ecommerce.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Forums, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Forums.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Migration, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Migration.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.MigrationContracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.MigrationContracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Model, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Model.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Personalization, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Personalization.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Personalization.Impl, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Personalization.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.PrecompiledTemplates, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.PrecompiledTemplates.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Resources, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Resources.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Search, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Search.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Search.Impl, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Search.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Documents, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Documents.Impl, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Documents.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Notifications, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Notifications.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Notifications.Impl, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Notifications.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Statistics, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Statistics.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Statistics.Impl, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Statistics.Impl.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Thunder.Contracts, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Thunder.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Thunder.Module, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Thunder.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.UI.MVC, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.UI.MVC.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Utilities, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Utilities.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Web.Design, Version=2013.3.1114.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Web.Design.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2013.3.1114.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Web.UI.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2013.3.1114.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.RadUploadHandler, Version=2012.3.1129.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.RadUploadHandler.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Twitterizer2, Version=2.4.1.27318, Culture=neutral, PublicKeyToken=69d1469eac671567">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Twitterizer2.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.SharePoint.Client.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.Http.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.IdentityModel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.WindowsAzure.Diagnostics.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.StorageClient, Version=1.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.WindowsAzure.StorageClient.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d">
+      <Private>False</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\MySql.Data.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="NHamcrest, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31c3ea0b6fcf8c4a">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\NHamcrest.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.0.8.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\RazorEngine.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Everlive.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Everlive.Client.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Everlive.Sdk, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Everlive.Sdk.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataAdapter, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataAdapter.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataAdapter.Everlive, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataAdapter.Everlive.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataSource.SharePoint, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataSource.SharePoint.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataSource.SyncDB, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataSource.SyncDB.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.Sync, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.Sync.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.OpenXmlRendering, Version=7.1.13.612, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Reporting.OpenXmlRendering.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.XpsRendering, Version=7.1.13.612, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Reporting.XpsRendering.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.EverliveConnector, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.EverliveConnector.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.MobileAppBuilder, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.MobileAppBuilder.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.RecurrentRules, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.RecurrentRules.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.DropboxLibraries, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.DropboxLibraries.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.SharepointConnector, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.SharepointConnector.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Tfis.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Tfis.Client.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Controls.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Data.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Fixed, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Documents.Fixed.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Documents.Core.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.OpenXml, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Documents.FormatProviders.OpenXml.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Rtf, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Documents.FormatProviders.Rtf.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2013.1.415.40, Culture=neutral, PublicKeyToken=5803cfa389c90ce7">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Windows.Zip.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.SqlServer.Types.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Lightning.Server, Version=6.1.4353.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Lightning.Server.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Net.Http.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Net.Http.Formatting.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.Http.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.Http.WebHost.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Net.Http.WebRequest.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Http.SelfHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\System.Web.Http.SelfHost.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.DAM, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.DAM.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="LinqToTwitter, Version=2.1.9.0, Culture=neutral, PublicKeyToken=957107be965c25d9">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\LinqToTwitter.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ServiceStack, Version=3.9.56.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\ServiceStack.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ServiceStack.Common, Version=3.9.56.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\ServiceStack.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=3.9.56.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\ServiceStack.Interfaces.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ServiceStack.ServiceInterface, Version=3.9.56.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\ServiceStack.ServiceInterface.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.56.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\ServiceStack.Text.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Comments.Impl, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Comments.Impl.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Dashboard, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Dashboard.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.MarketoConnector, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.MarketoConnector.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.SalesForceConnector, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.SalesForceConnector.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Thunder.Zip, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=7adb7ca2c49d9d20">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Thunder.Zip.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Thunder.CodeSync, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Thunder.CodeSync.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="CsvHelper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\CsvHelper.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Octopus.Validation, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Octopus.Validation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataAdapter.OpenAccess, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataAdapter.OpenAccess.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataAdapter.SalesForce, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataAdapter.SalesForce.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.OpenAccess.DataAdapter.SharePoint, Version=2013.3.1211.3, Culture=neutral, PublicKeyToken=563ab8ea49361608">
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.OpenAccess.DataAdapter.SharePoint.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Services.Events, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Services.Events.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Sitefinity.Connectivity, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=b28c218413bdf563">
+      <Private>True</Private>
+      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Telerik.Sitefinity.Connectivity.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AzureWebRole.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientBin\Telerik.Sitefinity.Analytics.xap" />
+    <Content Include="ClientBin\Telerik.Sitefinity.Silverlight.xap" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Silverlight.js" />
+    <Content Include="Sitefinity\Default.aspx" />
+    <Content Include="Sitefinity\Public\Services\Ecommerce\Order\CartOrder.svc" />
+    <Content Include="Sitefinity\Public\Services\LoadBalancing\AzureSystemWebService.svc" />
+    <Content Include="Sitefinity\Services\Analytics\AnalyticsPermissionsService.svc" />
+    <Content Include="Sitefinity\Services\Analytics\DashboardData.svc" />
+    <Content Include="Sitefinity\Services\Analytics\GoogleAnalytics.svc" />
+    <Content Include="Sitefinity\Services\Analytics\MapDataService.svc" />
+    <Content Include="Sitefinity\Services\Atompub\Blogs.svc" />
+    <Content Include="Sitefinity\Services\BlobStorage\BlobStorage.svc" />
+    <Content Include="Sitefinity\Services\Catalog\ProductAttribute.svc" />
+    <Content Include="Sitefinity\Services\Catalog\ProductAttributeValue.svc" />
+    <Content Include="Sitefinity\Services\Common\Comments.svc" />
+    <Content Include="Sitefinity\Services\Common\Content.svc" />
+    <Content Include="Sitefinity\Services\Common\GenericItemsService.svc" />
+    <Content Include="Sitefinity\Services\Common\QueryBuilderService.svc" />
+    <Content Include="Sitefinity\Services\Configuration\ConfigPolicies.svc" />
+    <Content Include="Sitefinity\Services\Configuration\ConfigPolicyHandlers.svc" />
+    <Content Include="Sitefinity\Services\Configuration\ConfigSectionItems.svc" />
+    <Content Include="Sitefinity\Services\Configuration\ConfigSections.svc" />
+    <Content Include="Sitefinity\Services\Configuration\LocalizationCultures.svc" />
+    <Content Include="Sitefinity\Services\Content\AlbumService.svc" />
+    <Content Include="Sitefinity\Services\Content\BlogPostService.svc" />
+    <Content Include="Sitefinity\Services\Content\BlogService.svc" />
+    <Content Include="Sitefinity\Services\Content\CommentsGenericService.svc" />
+    <Content Include="Sitefinity\Services\Content\ContentBlockPage.svc" />
+    <Content Include="Sitefinity\Services\Content\ContentItemService.svc" />
+    <Content Include="Sitefinity\Services\Content\ContentService.svc" />
+    <Content Include="Sitefinity\Services\Content\DocumentLibraryService.svc" />
+    <Content Include="Sitefinity\Services\Content\DocumentService.svc" />
+    <Content Include="Sitefinity\Services\Content\EventService.svc" />
+    <Content Include="Sitefinity\Services\Content\Generic.svc" />
+    <Content Include="Sitefinity\Services\Content\ImageService.svc" />
+    <Content Include="Sitefinity\Services\Content\NewsItemService.svc" />
+    <Content Include="Sitefinity\Services\Content\VideoLibraryService.svc" />
+    <Content Include="Sitefinity\Services\Content\VideoService.svc" />
+    <Content Include="Sitefinity\Services\ControlTemplates\ControlTemplateService.svc" />
+    <Content Include="Sitefinity\Services\DynamicModules\BackendFormService.svc" />
+    <Content Include="Sitefinity\Services\DynamicModules\BackendGridStructureService.svc" />
+    <Content Include="Sitefinity\Services\DynamicModules\ContentTypeService.svc" />
+    <Content Include="Sitefinity\Services\DynamicModules\Data.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductAttribute.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductAttributeValue.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductService.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductTypeService.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductVariation.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductVariationDetail.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Catalog\ProductVariationsModuleService.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\Cart.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\CartAddress.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\CartDetail.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\CartDiscount.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\CartOrder.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\Customer.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\Discount.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\Order.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\OrderDiscount.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\OrderDownload.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\PaymentMethod.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\Tax.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\TaxClass.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Reports\OrdersReports.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Reports\ProductsReports.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Shipping\ShippingMethod.svc" />
+    <Content Include="Sitefinity\Services\Folders\FoldersService.svc" />
+    <Content Include="Sitefinity\Services\Forms\FormsService.svc" />
+    <Content Include="Sitefinity\Services\Lists\ListItemService.svc" />
+    <Content Include="Sitefinity\Services\Lists\ListService.svc" />
+    <Content Include="Sitefinity\Services\Lists\ListsModuleService.svc" />
+    <Content Include="Sitefinity\Services\LoadBalancing\AzureSystemWebService.svc" />
+    <Content Include="Sitefinity\Services\LoadBalancing\SystemWebService.svc" />
+    <Content Include="Sitefinity\Services\Localization\AllCulturesResource.svc" />
+    <Content Include="Sitefinity\Services\Localization\DualLocalizationResources.svc" />
+    <Content Include="Sitefinity\Services\Localization\LocalizationClasses.svc" />
+    <Content Include="Sitefinity\Services\Localization\LocalizationResources.svc" />
+    <Content Include="Sitefinity\Services\MetaData\MetaData.svc" />
+    <Content Include="Sitefinity\Services\MetaData\ModuleEditor.svc" />
+    <Content Include="Sitefinity\Services\Migration\Migration.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\ABCampaign.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\Campaign.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\DynamicList.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\MailingList.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\MessageTemplate.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\Settings.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\Subscriber.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\SystemStats.svc" />
+    <Content Include="Sitefinity\Services\Pages\ControlPropertyService.svc" />
+    <Content Include="Sitefinity\Services\Pages\PagesService.svc" />
+    <Content Include="Sitefinity\Services\Pages\PageTemplatesService.svc" />
+    <Content Include="Sitefinity\Services\Pages\ZoneEditorService.svc" />
+    <Content Include="Sitefinity\Services\Publishing\PublishingService.svc" />
+    <Content Include="Sitefinity\Services\ResponsiveDesign\MediaQuery.svc" />
+    <Content Include="Sitefinity\Services\Security\MembershipSettings.svc" />
+    <Content Include="Sitefinity\Services\Security\Permissions.svc" />
+    <Content Include="Sitefinity\Services\Security\Roles.svc" />
+    <Content Include="Sitefinity\Services\Security\Users.svc" />
+    <Content Include="Sitefinity\Services\SitefinityProject.svc" />
+    <Content Include="Sitefinity\Services\SiteSync\SiteSyncService.svc" />
+    <Content Include="Sitefinity\Services\Taxonomies\FlatTaxon.svc" />
+    <Content Include="Sitefinity\Services\Taxonomies\HierarchicalTaxon.svc" />
+    <Content Include="Sitefinity\Services\Taxonomies\MarkedItems.svc" />
+    <Content Include="Sitefinity\Services\Taxonomies\Taxonomy.svc" />
+    <Content Include="Sitefinity\Services\Thunder\ThunderService.svc" />
+    <Content Include="Sitefinity\Services\Twitter\TwitterCredentialsService.svc" />
+    <Content Include="Sitefinity\Services\Twitter\TwitterUrlShortConfigService.svc" />
+    <Content Include="Sitefinity\Services\UserProfiles\UserProfileTypesService.svc" />
+    <Content Include="Sitefinity\Services\Versioning\HistoryService.svc" />
+    <Content Include="Sitefinity\Services\Workflow\WorkflowDefinitionService.svc" />
+    <Content Include="Sitefinity\Services\Workflow\WorkflowService.svc" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="wlwmanifest.xml" />
+    <Content Include="Sitefinity\Public\Services\Thunder\ThunderService.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\Order\CustomerAddress.svc" />
+    <Content Include="Sitefinity\Services\Ecommerce\CurrencyData.svc" />
+    <Content Include="Sitefinity\Services\Newsletters\IssueReport.svc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\RadSpell\de-DE.tdf" />
+    <Content Include="App_Data\RadSpell\en-US.tdf" />
+    <Content Include="App_Data\RadSpell\fr-FR.tdf" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Telerik.Sitefinity.Samples.Common\Telerik.Sitefinity.Samples.Common.csproj">
+      <Name>Telerik.Sitefinity.Samples.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Sitefinity\Configuration\DataConfig.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>22224</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
