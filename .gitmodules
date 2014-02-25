@@ -1,0 +1,3 @@
+[submodule "Telerik.Sitefinity.Samples.Common"]
+	path = Telerik.Sitefinity.Samples.Common
+	url = https://github.com/Sitefinty-SDK/Telerik.Sitefinity.Samples.Common.git
