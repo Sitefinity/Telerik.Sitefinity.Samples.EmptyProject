@@ -38,6 +38,16 @@ The project refers to the following NuGet packages:
 
 * Telerik.Sitefinity.All.nupkg
 
+
+**Telerik.Sitefinity.Samples.Common** library
+
+* Telerik.Sitefinity.Core.nupkg
+
+* OpenAccess.Core.nupkg
+
+* Telerik.Sitefinity.Content.nupkg
+
+
 You can find the packages in the official [Sitefinity Nuget Server](http://nuget.sitefinity.com).
 
 ### Login
