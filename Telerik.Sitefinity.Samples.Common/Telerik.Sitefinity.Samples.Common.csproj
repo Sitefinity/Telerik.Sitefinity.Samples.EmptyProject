@@ -32,77 +32,179 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>C:\Users\dabour\AppData\Local\Telerik.Sitefinity.SDK\Dependencies\Microsoft.IdentityModel.dll</HintPath>
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="Telerik.OpenAccess">
-      <HintPath>..\SitefinityWebApp\packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.OpenAccess.35.Extensions">
-      <HintPath>..\SitefinityWebApp\packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.35.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.OpenAccess.Runtime">
-      <HintPath>..\SitefinityWebApp\packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.ContentModules">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.ContentModules.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Ecommerce">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.Ecommerce.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Forums">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.Forums.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Model">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Model.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Personalization">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Personalization.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.RecurrentRules">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.RecurrentRules.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Resources, Version=6.3.5000.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Resources.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Search">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Search.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Services.Comments">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Comments.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Services.Documents">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Documents.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Services.Events">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Events.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Services.Notifications">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Notifications.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Services.Statistics">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Statistics.dll</HintPath>
-    </Reference>
-    <Reference Include="Telerik.Sitefinity.Utilities">
-      <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Utilities.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+
+  <Choose>
+    <When Condition="Exists('..\SitefinityWebApp')">
+      <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.configuration" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Web.ApplicationServices" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="Microsoft.IdentityModel">
+          <SpecificVersion>False</SpecificVersion>
+        </Reference>
+        <Reference Include="Telerik.OpenAccess">
+          <HintPath>..\SitefinityWebApp\packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.OpenAccess.35.Extensions">
+          <HintPath>..\SitefinityWebApp\packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.35.Extensions.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.OpenAccess.Runtime">
+          <HintPath>..\SitefinityWebApp\packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.Runtime.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.ContentModules">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.ContentModules.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Ecommerce">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.Ecommerce.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Forums">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.Forums.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Model">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Model.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Personalization">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Personalization.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.RecurrentRules">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.RecurrentRules.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Resources">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Resources.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Search">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Search.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Comments">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Comments.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Documents">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Documents.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Events">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Events.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Notifications">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Notifications.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Statistics">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Statistics.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Utilities">
+          <HintPath>..\SitefinityWebApp\packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Utilities.dll</HintPath>
+
+        </Reference>
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="System" />
+        <Reference Include="System.configuration" />
+        <Reference Include="System.Core" />
+        <Reference Include="System.Runtime.Serialization" />
+        <Reference Include="System.Web" />
+        <Reference Include="System.Web.ApplicationServices" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="System.Data.DataSetExtensions" />
+        <Reference Include="Microsoft.CSharp" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Xml" />
+        <Reference Include="Microsoft.IdentityModel">
+          <SpecificVersion>False</SpecificVersion>
+        </Reference>
+        <Reference Include="Telerik.OpenAccess">
+          <HintPath>packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.OpenAccess.35.Extensions">
+          <HintPath>packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.35.Extensions.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.OpenAccess.Runtime">
+          <HintPath>packages\OpenAccess.Core.2013.3.1211.3\lib\Telerik.OpenAccess.Runtime.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.ContentModules">
+          <HintPath>packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.ContentModules.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Ecommerce">
+          <HintPath>packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.Ecommerce.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Forums">
+          <HintPath>packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.Forums.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Model">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Model.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Personalization">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Personalization.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.RecurrentRules">
+          <HintPath>packages\Telerik.Sitefinity.Content.6.3.5000.0\lib\net40\Telerik.Sitefinity.RecurrentRules.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Resources">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Resources.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Search">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Search.dll</HintPath>
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Comments">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Comments.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Documents">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Documents.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Events">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Events.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Notifications">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Notifications.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Services.Statistics">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Services.Statistics.dll</HintPath>
+
+        </Reference>
+        <Reference Include="Telerik.Sitefinity.Utilities">
+          <HintPath>packages\Telerik.Sitefinity.Core.6.3.5000.0\lib\net40\Telerik.Sitefinity.Utilities.dll</HintPath>
+
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
   <ItemGroup>
     <Compile Include="ColumnDetails.cs" />
     <Compile Include="ColumnSpaces.cs" />
