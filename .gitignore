@@ -1,0 +1,5 @@
+*.dll
+*.pdb
+*.xml
+*.nupkg
+*.nuspec
