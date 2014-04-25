@@ -3442,31 +3442,7 @@ namespace Telerik.Sitefinity.Samples.Common
 
         private static PageNode GetPageNodeForLanguage(PageData page, CultureInfo language)
         {
-            PageNode result = null;
-            if (page != null)
-            {
-                if (page.LocalizationStrategy == LocalizationStrategy.Split && page.PageLanguageLink != null)
-                {
-                    foreach (var p in page.PageLanguageLink.LanguageLinks)
-                    {
-                        if (p.UiCulture == language.Name)
-                        {
-                            result = p.NavigationNode;
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    result = page.NavigationNode;
-                }
-            }
-            else
-            {
-                throw new ArgumentException("You must specify a valid page!");
-            }
-
-            return result;
+            return page.NavigationNode;
         }
 
         private static bool LanguageExistsForPage(PageData pageData, CultureInfo language)
