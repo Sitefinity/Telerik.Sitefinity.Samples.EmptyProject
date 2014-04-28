@@ -7,7 +7,7 @@ Using the Empty Project sample, you can build the project from scratch and make 
 
 ### Requirements
 
-* Sitefinity 6.3 license
+* Sitefinity license
 
 * .NET Framework 4
 
