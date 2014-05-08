@@ -1581,66 +1581,66 @@ namespace Telerik.Sitefinity.Samples.Common
             var currentCulture = Thread.CurrentThread.CurrentUICulture;
             Thread.CurrentThread.CurrentUICulture = cultureInfo;
 
+            PageManager manager = PageManager.GetManager();
+            PageData pageData = null;
+            PageNode pageNode = null;
             var result = false;
-            var pageDataId = Guid.NewGuid();
-            using (PageManager pageManager = PageManager.GetManager())
+
+            pageNode = manager.GetPageNodes().Where(n => n.Id == pageId).SingleOrDefault();
+
+            if (pageNode != null && pageNode.AvailableCultures.Contains(cultureInfo))
             {
-                using (new ElevatedModeRegion(pageManager))
+                return result;
+            }
+
+            result = true;
+
+            if (pageNode == null)
+            {
+                var parentId = parentPageId;
+
+                if (parentId == Guid.Empty)
                 {
-                    var initialPageNode = pageManager.GetPageNodes().Where(n => n.Id == pageId).SingleOrDefault();
+                    parentId = SiteInitializer.CurrentFrontendRootNodeId;
+                }
 
-                    if (initialPageNode != null && LanguageExistsForPage(initialPageNode.Page, cultureInfo))
-                    {
-                        return result;
-                    }
+                //Create Page
+                PageNode parent = manager.GetPageNode(parentId);
+                pageNode = manager.CreatePage(parent, pageId, NodeType.Standard);
+                pageData = manager.CreatePageData(Guid.NewGuid());
+                pageData.Culture = Thread.CurrentThread.CurrentCulture.ToString();
 
-                    result = true;
+                pageNode.Name = pageName;
+                pageNode.ShowInNavigation = true;
+                pageNode.DateCreated = DateTime.UtcNow;
+                pageNode.LastModified = DateTime.UtcNow;
 
-                    PageData pageData;
-                    PageNode pageNode;
-                    if (initialPageNode == null)
-                    {
-                        var parentId = parentPageId;
-                        if (parentId == Guid.Empty)
-                        {
-                            parentId = SiteInitializer.CurrentFrontendRootNodeId;
-                        }
-                        //Create Page
-                        PageNode parent = pageManager.GetPageNode(parentId);
-                        pageNode = pageManager.CreatePage(parent, pageId, NodeType.Standard);
+            }
+            else
+            {
+                //TranslatePage
+                manager.InitializePageLocalizationStrategy(pageNode, LocalizationStrategy.Split, false);
+                if (pageData == null)
+                    pageData = manager.CreateSystemPageDataForSplitPage(pageNode, cultureInfo);
+                pageData.IsAutoCreated = false;
+            }
 
-                        pageData = pageManager.CreatePageData(pageDataId);
-                        pageData.Culture = Thread.CurrentThread.CurrentCulture.ToString();
-                        pageData.UiCulture = Thread.CurrentThread.CurrentUICulture.ToString();
+            pageNode.UrlName[cultureInfo] = Regex.Replace(pageName.ToLower(), @"[^\w\-\!\$\'\(\)\=\@\d_]+", "-");
+            pageNode.Description[cultureInfo] = pageName;
+            pageNode.Title[cultureInfo] = pageName;
+            pageNode.ShowInNavigation = showInNavigation;
 
-                        pageNode.Page = pageData;
-                        pageNode.Name = pageName;
-                        pageNode.ShowInNavigation = true;
-                        pageNode.DateCreated = DateTime.UtcNow;
-                        pageNode.LastModified = DateTime.UtcNow;
-                    }
-                    else
-                    {
-                        //TranslatePage
-                        pageManager.InitializePageLocalizationStrategy(initialPageNode, LocalizationStrategy.Split, false);
-                        pageNode = GetPageNodeForLanguage(initialPageNode.Page, cultureInfo);
-                        pageData = pageNode.Page;
-                        pageData.TranslationInitialized = true;
-                        pageData.IsAutoCreated = false;
-                    }
-                    pageNode.UrlName[cultureInfo] = Regex.Replace(pageName.ToLower(), UrlNameCharsToReplace, UrlNameReplaceString);
-                    pageNode.Description[cultureInfo] = pageName;
-                    pageNode.Title[cultureInfo] = pageName;
-                    pageNode.ShowInNavigation = showInNavigation;
+            pageData.Title[cultureInfo] = pageName;
+            pageData.HtmlTitle[cultureInfo] = pageName;
+            pageData.Description[cultureInfo] = pageName;
 
-                    pageData.HtmlTitle[cultureInfo] = pageName;
-                    pageData.Title[cultureInfo] = pageName;
-                    pageData.Description[cultureInfo] = pageName;
+            manager.SaveChanges();
 
-                    pageNode.ApprovalWorkflowState = SampleUtilities.ApprovalWorkflowStatePublished;
-
-                    pageManager.SaveChanges();
-                    SystemManager.CurrentContext.CurrentSite.SetHomePage(pageId);
+            if (isHomePage)
+            {
+                using (var fluent = App.WorkWith())
+                {
+                    fluent.Page(pageId).SetAsHomePage().SaveChanges();
                 }
             }
 
