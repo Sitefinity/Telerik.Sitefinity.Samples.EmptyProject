@@ -3681,23 +3681,32 @@ namespace Telerik.Sitefinity.Samples.Common
             bool result = false;
 
             var mgr = ForumsManager.GetManager();
-            ForumThread thread = mgr.CreateThread(threadId);
-            thread.Title = title;
-            thread.UrlName = Regex.Replace(title.ToLower(), @"[^\w\-\!\$\'\(\)\=\@\d_]+", "-");
-            thread.Forum = mgr.GetForum(forumId);
-            thread.LastModified = DateTime.UtcNow;
-            thread.IsPublished = true;
-            mgr.RecompileItemUrls<ForumThread>(thread);
+            using (new ElevatedModeRegion(mgr))
+            {
+                var thread = mgr.GetThread(threadId);
 
-            // create the first post
-            ForumPost post = mgr.CreatePost(postId);
-            post.Title = title;
-            post.Thread = thread;
-            post.Content = content;
-            post.LastModified = DateTime.UtcNow;
-            post.IsPublished = true;
+                if (thread == null)
+                {
+                    thread = mgr.CreateThread(threadId);
+                    thread.Title = title;
+                    thread.UrlName = Regex.Replace(title.ToLower(), @"[^\w\-\!\$\'\(\)\=\@\d_]+", "-");
+                    thread.Forum = mgr.GetForum(forumId);
+                    thread.LastModified = DateTime.UtcNow;
+                    thread.IsPublished = true;
+                    mgr.RecompileItemUrls<ForumThread>(thread);
 
-            mgr.SaveChanges();
+                    // create the first post
+                    ForumPost post = mgr.CreatePost(postId);
+                    post.Title = title;
+                    post.Thread = thread;
+                    post.Content = content;
+                    post.LastModified = DateTime.UtcNow;
+                    post.IsPublished = true;
+
+                    mgr.SaveChanges();
+                    result = true;
+                }
+            }
 
             return result;
         }
