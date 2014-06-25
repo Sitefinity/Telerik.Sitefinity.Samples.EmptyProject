@@ -5,7 +5,6 @@ using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -119,7 +118,7 @@ namespace Telerik.Sitefinity.Samples.Common
 
                 if (page != null)
                 {
-                    var master = pageManager.EditPage(page.Page.Id);
+                    var master = pageManager.EditPage(page.GetPageData().Id);
 
                     if (master != null)
                     {
@@ -151,7 +150,7 @@ namespace Telerik.Sitefinity.Samples.Common
 
                 if (page != null)
                 {
-                    var master = pageManager.EditPage(page.Page.Id);
+                    var master = pageManager.EditPage(page.GetPageData().Id);
 
                     if (master != null)
                     {
@@ -195,9 +194,9 @@ namespace Telerik.Sitefinity.Samples.Common
                 {
                     control.SiblingId = GetLastControlInPlaceHolderInPageId(page, placeHolder);
                     pageManager.SetControlDefaultPermissions(control);
-                    page.Page.Controls.Add(control);
+                    page.GetPageData().Controls.Add(control);
 
-                    var master = pageManager.EditPage(page.Page.Id);
+                    var master = pageManager.EditPage(page.GetPageData().Id);
                     master = pageManager.PagesLifecycle.CheckIn(master);
                     master.ApprovalWorkflowState.Value = SampleUtilities.ApprovalWorkflowStatePublished;
                     pageManager.PagesLifecycle.Publish(master);
@@ -217,8 +216,8 @@ namespace Telerik.Sitefinity.Samples.Common
             using (new ElevatedModeRegion(pageManager))
             {
                 var initialPageNode = pageManager.GetPageNode(pageId);
-                var pageNode = GetPageNodeForLanguage(initialPageNode.Page, cultureInfo);
-                var pageData = pageNode.Page;
+                var pageNode = GetPageNodeForLanguage(initialPageNode.GetPageData(), cultureInfo);
+                var pageData = pageNode.GetPageData();
                 var master = pageManager.EditPage(pageData.Id);
 
                 if (master != null)
@@ -255,9 +254,9 @@ namespace Telerik.Sitefinity.Samples.Common
             using (new ElevatedModeRegion(pageManager))
             {
                 var initialPageNode = pageManager.GetPageNode(pageId);
-                var pageNode = GetPageNodeForLanguage(initialPageNode.Page, cultureInfo);
+                var pageNode = GetPageNodeForLanguage(initialPageNode.GetPageData(), cultureInfo);
 
-                var pageData = pageNode.Page;
+                var pageData = pageNode.GetPageData();
                 var master = pageManager.EditPage(pageData.Id);
 
                 if (master != null)
@@ -655,12 +654,12 @@ namespace Telerik.Sitefinity.Samples.Common
                                 using (new ElevatedModeRegion(blogFacade.GetManager()))
                                 {
                                     blogFacade.CreateNew(blogId).Do(b =>
-                                        {
-                                            b.Title[cultureInfo] = title;
-                                            b.Description[cultureInfo] = description;
-                                            b.UrlName[cultureInfo] = Regex.Replace(title.ToLower(), UrlNameCharsToReplace, UrlNameReplaceString);
-                                            blogCreated = true;
-                                        }).SaveChanges();
+                                    {
+                                        b.Title[cultureInfo] = title;
+                                        b.Description[cultureInfo] = description;
+                                        b.UrlName[cultureInfo] = Regex.Replace(title.ToLower(), UrlNameCharsToReplace, UrlNameReplaceString);
+                                        blogCreated = true;
+                                    }).SaveChanges();
 
                                     result = true;
                                 }
@@ -1404,46 +1403,46 @@ namespace Telerik.Sitefinity.Samples.Common
                     using (new ElevatedModeRegion(newsItemNewIdFacade.GetManager()))
                     {
                         newsItemNewIdFacade.CheckOut().Do(item =>
+                        {
+                            item.Title[cultureInfo] = newsTitle;
+                            item.GetString("Content")[cultureInfo] = newsContent;
+                            item.Summary[cultureInfo] = summary;
+                            item.Author[cultureInfo] = author;
+                            item.UrlName[cultureInfo] = Regex.Replace(newsTitle.ToLower(), UrlNameCharsToReplace, UrlNameReplaceString);
+
+                            if (categories != null && categories.Count > 0)
                             {
-                                item.Title[cultureInfo] = newsTitle;
-                                item.GetString("Content")[cultureInfo] = newsContent;
-                                item.Summary[cultureInfo] = summary;
-                                item.Author[cultureInfo] = author;
-                                item.UrlName[cultureInfo] = Regex.Replace(newsTitle.ToLower(), UrlNameCharsToReplace, UrlNameReplaceString);
-
-                                if (categories != null && categories.Count > 0)
+                                foreach (string category in categories)
                                 {
-                                    foreach (string category in categories)
+                                    var taxManager = TaxonomyManager.GetManager();
+                                    using (new ElevatedModeRegion(taxManager))
                                     {
-                                        var taxManager = TaxonomyManager.GetManager();
-                                        using (new ElevatedModeRegion(taxManager))
+                                        var taxon = taxManager.GetTaxa<HierarchicalTaxon>().Where(t => t.Name == category).SingleOrDefault();
+                                        if (taxon != null)
                                         {
-                                            var taxon = taxManager.GetTaxa<HierarchicalTaxon>().Where(t => t.Name == category).SingleOrDefault();
-                                            if (taxon != null)
-                                            {
-                                                item.Organizer.AddTaxa("Category", taxon.Id);
-                                            }
+                                            item.Organizer.AddTaxa("Category", taxon.Id);
                                         }
                                     }
                                 }
+                            }
 
-                                if (tags != null && tags.Count > 0)
+                            if (tags != null && tags.Count > 0)
+                            {
+                                foreach (string tag in tags)
                                 {
-                                    foreach (string tag in tags)
+                                    var taxManager = TaxonomyManager.GetManager();
+                                    using (new ElevatedModeRegion(taxManager))
                                     {
-                                        var taxManager = TaxonomyManager.GetManager();
-                                        using (new ElevatedModeRegion(taxManager))
+                                        var taxon = taxManager.GetTaxa<FlatTaxon>().Where(t => t.Name == tag).SingleOrDefault();
+                                        if (taxon != null)
                                         {
-                                            var taxon = taxManager.GetTaxa<FlatTaxon>().Where(t => t.Name == tag).SingleOrDefault();
-                                            if (taxon != null)
-                                            {
-                                                item.Organizer.AddTaxa("Tags", taxon.Id);
-                                            }
+                                            item.Organizer.AddTaxa("Tags", taxon.Id);
                                         }
                                     }
                                 }
-                                item.ApprovalWorkflowState.Value = SampleUtilities.ApprovalWorkflowStatePublished;
-                            }).CheckIn().Publish().SaveChanges();
+                            }
+                            item.ApprovalWorkflowState.Value = SampleUtilities.ApprovalWorkflowStatePublished;
+                        }).CheckIn().Publish().SaveChanges();
                     }
                 }
             }
@@ -1523,6 +1522,7 @@ namespace Telerik.Sitefinity.Samples.Common
                         .CreateNewStandardPage(parentId, pageId, pageDataId)
                         .Do(p =>
                         {
+                            PageData pageData = p.GetPageData();
                             p.Title = pageName;
                             p.Name = pageName;
                             p.Description = pageName;
@@ -1530,13 +1530,13 @@ namespace Telerik.Sitefinity.Samples.Common
                             p.ShowInNavigation = true;
                             p.DateCreated = DateTime.UtcNow;
                             p.LastModified = DateTime.UtcNow;
-                            p.Page.HtmlTitle = pageName;
+                            pageData.HtmlTitle = pageName;
 
-                            p.Page.HtmlTitle = pageName;
-                            p.Page.Title = pageName;
-                            p.Page.Description = pageName;
-                            p.Page.Culture = Thread.CurrentThread.CurrentCulture.ToString();
-                            p.Page.UiCulture = Thread.CurrentThread.CurrentUICulture.ToString();
+                            pageData.HtmlTitle = pageName;
+                            p.Title = pageName;
+                            pageData.Description = pageName;
+                            pageData.Culture = Thread.CurrentThread.CurrentCulture.ToString();
+                            //pageData.UiCulture = Thread.CurrentThread.CurrentUICulture.ToString();
                             p.ApprovalWorkflowState.Value = SampleUtilities.ApprovalWorkflowStatePublished;
                         }).CheckOut().Publish().SaveChanges();
 
@@ -1630,7 +1630,7 @@ namespace Telerik.Sitefinity.Samples.Common
             pageNode.Title[cultureInfo] = pageName;
             pageNode.ShowInNavigation = showInNavigation;
 
-            pageData.Title[cultureInfo] = pageName;
+            pageNode.Title[cultureInfo] = pageName;
             pageData.HtmlTitle[cultureInfo] = pageName;
             pageData.Description[cultureInfo] = pageName;
 
@@ -1900,7 +1900,7 @@ namespace Telerik.Sitefinity.Samples.Common
                         using (new ElevatedModeRegion(profileManager))
                         {
                             var sfProfile =
-                                profileManager.CreateProfile(user, userId, typeof (SitefinityProfile)) as
+                                profileManager.CreateProfile(user, userId, typeof(SitefinityProfile)) as
                                     SitefinityProfile;
 
                             if (sfProfile != null)
@@ -2771,9 +2771,9 @@ namespace Telerik.Sitefinity.Samples.Common
                     {
                         var initialPageNode = pageManager.GetPageNode(pageId);
 
-                        var pageNode = GetPageNodeForLanguage(initialPageNode.Page, cultureInfo);
+                        var pageNode = GetPageNodeForLanguage(initialPageNode.GetPageData(), cultureInfo);
 
-                        PageData pageData = pageNode.Page;
+                        PageData pageData = pageNode.GetPageData();
                         var master = pageManager.EditPage(pageData.Id);
                         master.TemplateId = templateId;
                         master.ApprovalWorkflowState.Value = SampleUtilities.ApprovalWorkflowStatePublished;
@@ -2826,7 +2826,7 @@ namespace Telerik.Sitefinity.Samples.Common
 
                         manager.Upload(document, file.OpenRead(), file.Extension);
                         manager.RecompileItemUrls<Document>(document);
-                        manager.Publish(document);
+                        manager.Lifecycle.Publish(document);
                         manager.SaveChanges();
                     }
                 }
@@ -3326,7 +3326,7 @@ namespace Telerik.Sitefinity.Samples.Common
         {
             var id = Guid.Empty;
 
-            var controls = new List<PageControl>(page.Page.Controls.Where(c => c.PlaceHolder == placeHolder));
+            var controls = new List<PageControl>(page.GetPageData().Controls.Where(c => c.PlaceHolder == placeHolder));
 
             while (controls.Count > 0)
             {
