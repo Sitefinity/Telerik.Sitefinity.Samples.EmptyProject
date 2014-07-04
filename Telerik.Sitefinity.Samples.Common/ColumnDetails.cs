@@ -11,8 +11,9 @@
         {
             get
             {
-                return columnSpaces;
+                return this.columnSpaces;
             }
+
             set
             {
                 this.columnSpaces = value;
@@ -25,6 +26,7 @@
             {
                 return this.columnClass;
             }
+
             set
             {
                 this.columnClass = value;
@@ -37,6 +39,7 @@
             {
                 return this.columnWidthPercentage;
             }
+
             set
             {
                 this.columnWidthPercentage = value;
@@ -49,6 +52,7 @@
             {
                 return this.placeholderId;
             }
+
             set
             {
                 this.placeholderId = value;
