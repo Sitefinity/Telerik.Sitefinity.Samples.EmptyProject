@@ -29,11 +29,8 @@ For a history and additional information related to package versions on differen
 
 ### Installation instructions: SDK Samples from GitHub
 
-
-
-
-1. In Solution Explorer, navigate to _SitefinityWebApp_ -> *App_Data* -> _Sitefinity_ -> _Configuration_ and select the **DataConfig.config** file. 
-2. Modify the **connectionString** value to match your server address.
+1. In Solution Explorer, navigate to _SitefinityWebApp_ -> *App_Data* -> _Sitefinity_ -> _Configuration_ and select the **StartupConfig.config** file. 
+2. Modify the **dbType**, **sqlInstance** and **dbName** values to match your server settings.
 3. Build the solution.
 
 For version-specific details about the required Sitefinity NuGet packages for this sample application, click on [Releases]
