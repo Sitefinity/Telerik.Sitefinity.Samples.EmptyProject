@@ -13,12 +13,6 @@ namespace SitefinityWebApp
     {
         protected void Application_Start(object sender, EventArgs e)
         {
-            SystemManager.ApplicationStart += SystemManager_ApplicationStart;
-        }
-
-        private void SystemManager_ApplicationStart(object sender, EventArgs e)
-        {
-            SampleUtilities.CreateUsersAndRoles();     
         }
 
         protected void Session_Start(object sender, EventArgs e)
