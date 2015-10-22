@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Telerik")]
 [assembly: AssemblyProduct("Telerik Sitefinity CMS")]
-[assembly: AssemblyCopyright("Copyright © Telerik 2011")]
+[assembly: AssemblyCopyright("Copyright © Telerik 2015")]
 [assembly: AssemblyTrademark("Sitefinity")]
 [assembly: AssemblyCulture("")]
 
@@ -33,6 +33,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("4.3.1873.0")]
-[assembly: AssemblyFileVersion("4.3.1873.0")]
+[assembly: AssemblyVersion("8.2.5900.0")]
+[assembly: AssemblyFileVersion("8.2.5900.0")]
 [assembly: NeutralResourcesLanguageAttribute("en")]
