@@ -1,4 +1,4 @@
-Progress.Sitefinity.Samples.EmptyProject
+Progress.Sitefinity.Samples.EmptyProject 
 =======================================
 
 [![Build Status](http://sdk-jenkins-ci.cloudapp.net/buildStatus/icon?job=Telerik.Sitefinity.Samples.EmptyProject.CI)](http://sdk-jenkins-ci.cloudapp.net/job/Telerik.Sitefinity.Samples.EmptyProject.CI/)
